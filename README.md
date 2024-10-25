@@ -2,7 +2,7 @@
 
 
 
-helm template eks-backend yes-app \
+helm install eks-backend-yeyeye my-helm-repo/eks-backend --version 1.0.1 \
   --set acmCertificateArn="arn:aws:acm:us-east-1:533267127040:certificate/bc088350-8450-478b-bd01-d682317d732e" \
   --set nameOverride="eks-backend" \
   --set env.dbHost="mysql-test-service" \
@@ -22,5 +22,4 @@ helm template eks-backend yes-app \
   --set ingress.hosts[2].host="third.host.com" \
   --set ingress.hosts[2].paths[0].path="/service" \
   --set ingress.hosts[2].paths[0].port=9003 \
-  --set ingress.hosts[2].paths[0].serviceName="eks-backend-service-3" \
-  --set acmCertificateArn="arn:aws:acm:us-east-1:533267127040:certificate/bc088350-8450-478b-bd01-d682317d732e"
+  --set ingress.hosts[2].paths[0].serviceName="eks-backend-service-3"
